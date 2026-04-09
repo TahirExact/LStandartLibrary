@@ -22,7 +22,6 @@ func NewHandler(service *Service) *Handler {
 func (m *Handler) Create(w http.ResponseWriter, r *http.Request) {
 	var input struct {
 		Name string `json:"name"`
-		ID   int    `json:"id"`
 	}
 
 	if err := json.NewDecoder(r.Body).Decode(&input); err != nil {
@@ -30,7 +29,7 @@ func (m *Handler) Create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	department, err := m.service.CreteDepartment(r.Context(), input.Name, input.ID)
+	department, err := m.service.CreteDepartment(r.Context(), input.Name)
 
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)

@@ -16,17 +16,12 @@ func NewService(repo Repository) *Service {
 	}
 }
 
-func (s *Service) CreteDepartment(ctx context.Context, name string, id int) (*models.Department, error) {
+func (s *Service) CreteDepartment(ctx context.Context, name string) (*models.Department, error) {
 	if name == "" {
 		return nil, fmt.Errorf("name can't be empty")
 	}
 
-	if id == 0 {
-		return nil, fmt.Errorf("id can't be empty")
-	}
-
 	newDepartment := &models.Department{
-		ID:   id,
 		Name: name,
 	}
 
