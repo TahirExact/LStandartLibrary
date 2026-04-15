@@ -4,14 +4,16 @@ import (
 	"log"
 	"my-project/internal/classes"
 	"my-project/internal/departments"
+	studentclasses "my-project/internal/student_classes"
 	"my-project/internal/students"
 	"net/http"
 )
 
 type Server struct {
-	studentHandler    *students.Handler
-	departmentHandler *departments.Handler
-	classHandler      *classes.Handler
+	studentHandler      *students.Handler
+	departmentHandler   *departments.Handler
+	classHandler        *classes.Handler
+	studentClassHandler *studentclasses.Handler
 }
 
 func DepedencyInjection() *Server {
@@ -30,10 +32,16 @@ func DepedencyInjection() *Server {
 	studentService := students.NewService(studentRepo, departmentRepo)
 	studentHandler := students.NewHandler(studentService)
 
+	//StudentClass domain
+	studentClassRepo := studentclasses.NewMemoryRepo()
+	studentClassService := studentclasses.NewService(studentClassRepo, studentRepo, classRepo)
+	studentClassHandler := studentclasses.NewHanler(studentClassService)
+
 	return &Server{
-		studentHandler:    studentHandler,
-		departmentHandler: departmentHanler,
-		classHandler:      classHandler,
+		studentHandler:      studentHandler,
+		departmentHandler:   departmentHanler,
+		classHandler:        classHandler,
+		studentClassHandler: studentClassHandler,
 	}
 }
 
@@ -57,5 +65,8 @@ func main() {
 	mux.HandleFunc("GET /classes", server.classHandler.GetAllClasses)
 	mux.HandleFunc("POST /classes", server.classHandler.CreateClass)
 
+	//StudentClass rautes
+	mux.HandleFunc("POST /student/class", server.studentClassHandler.AssignClassToStudent)
+	mux.HandleFunc("GET /student/class/{id}", server.studentClassHandler.GetStudentWithClasses)
 	log.Fatal(http.ListenAndServe(":8080", mux))
 }
