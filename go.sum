@@ -1,0 +1,10 @@
+github.com/TAhirr01/cliflags v1.0.2 h1:zeedAubJC1DCTD3H0YPQKuiLaRgaM6X6KD+S0Z85ydA=
+github.com/TAhirr01/cliflags v1.0.2/go.mod h1:QyNmjYxh4VhrQgx4v6QGGycuyG3i6+TubL4DJPjoy+0=
+github.com/TAhirr01/confmaker v0.0.0-20260416121232-58ce864aa47e h1:MEawo6Xw+IybUtwRNveiLOZE9una0wiNsEK9U3YBY5o=
+github.com/TAhirr01/confmaker v0.0.0-20260416121232-58ce864aa47e/go.mod h1:y+gz0A6/ruTBbwvmDa1N282mDsiOpG5RiNBgbOa5qj0=
+github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=
+github.com/joho/godotenv v1.5.1/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
+gopkg.in/yaml.v3 v3.0.1 h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=
+gopkg.in/yaml.v3 v3.0.1/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=

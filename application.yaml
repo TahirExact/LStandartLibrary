@@ -1,0 +1,6 @@
+application:
+   datasource:
+     user-name: ${DB_USER:tahir}
+     user-pass: ${DB_PASSWORD:tahir123}
+     db-name:   ${DB_NAME:school_db}
+     db-host:   ${DB_HOST:localhost}
