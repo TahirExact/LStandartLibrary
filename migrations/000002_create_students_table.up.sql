@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    department_id INTEGER REFERENCES departments(id) ON DELETE SET NULL
+);
