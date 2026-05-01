@@ -1,7 +1,9 @@
 package main
 
 import (
+	"log"
 	"my-project/internal/classes"
+	"my-project/internal/config"
 	"my-project/internal/departments"
 	studentclasses "my-project/internal/student_classes"
 	"my-project/internal/students"
@@ -15,6 +17,7 @@ type Server struct {
 }
 
 func DepedencyInjection() *Server {
+
 	//Departments domain
 	departmentRepo := departments.NewMemoryRepo()
 	departmentService := departments.NewService(departmentRepo)
@@ -41,4 +44,12 @@ func DepedencyInjection() *Server {
 		classHandler:        classHandler,
 		studentClassHandler: studentClassHandler,
 	}
+}
+
+func (s *Server) Start() {
+	log.Print("Opening Database Connection")
+	DbConn, err := config.ConnectDB(config.Conf.Application.Datasource.Url)
+	
+	
+
 }

@@ -4,3 +4,4 @@ application:
      user-pass: ${DB_PASSWORD:tahir123}
      db-name:   ${DB_NAME:school_db}
      db-host:   ${DB_HOST:localhost}
+     db-url :   ${DB_URL}

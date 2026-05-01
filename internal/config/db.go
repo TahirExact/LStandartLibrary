@@ -3,7 +3,7 @@ package config
 import (
 	"database/sql"
 
-	_ "github.com/lib/pq" // Blank import to register the driver
+	_ "github.com/lib/pq" // Blank import to register the driver with init().
 )
 
 func ConnectDB(dsn string) (*sql.DB, error) {
@@ -16,7 +16,7 @@ func ConnectDB(dsn string) (*sql.DB, error) {
 		return nil, err
 	}
 
-	
+	db.SetMaxOpenConns(5)
 
 	return db, nil
 }

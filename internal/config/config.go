@@ -1,5 +1,7 @@
 package config
 
+var Conf Config
+
 type Config struct {
 	Application Application `yaml:"application"`
 }
@@ -9,8 +11,6 @@ type Application struct {
 }
 
 type Datasource struct {
-	UserName     string `yaml:"user-name"`
-	UserPassword string `yaml:"user-pass"`
-	HostName     string `yaml:"db-host"`
-	DbNameName   string `yaml:"db-name"`
+	DbName string `yaml:"db-name"`
+	Url    string `yaml:"db-url"`
 }
